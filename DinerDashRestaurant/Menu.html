@@ -7,38 +7,55 @@
 	
 	<head>
 		<title>Menu</title>
+		<link href = "styles\Dinerstyles.css" rel = "stylesheet" type = "text/css" />
+		<style>
+		th {
+		background-color:indianred;
+		font-size: 150%;
+		}
+		#FoodsTable {
+		text-align: center;
+		font-size: 110%;
+		}
+		#Beverage {
+		text-align: center;
+		font-size: 110%;
+		width: 100%;
+		padding: 8px 8px;
+		}
+		</style>
 	</head>
 	
 	<body>
 	<header>
-		<h1><em>Diner Dash</em></h1>
+		<h1>Diner Dash</h1>
 	</header>
 	
 	<nav>
 	
 	<hr />
-	<p><a href = "DinerDash.html">Home	</a>
-	<a href = "ContactUs.html">Contact Us</a></p>
+	<p><a href = "DinerDash.html">Home</a><a href = "ContactUs.html">Contact Us</a></p>
+	
 	<hr />
 	
 	</nav>
 	
 	<section>
 	<article>
-	<table>
+	<table id = "FoodsTable">
 		<tr>
 			<th>Burger and Fries</th>
 			<th>Hot Dog and Chips</th>
 			<th>Italian Sausage and Pepper</th>
 		</tr>
 		
-		<tr>
+		<tr style = "background-color:pink;">
 			<td>An American Classic! Your choice - with or without cheese.Pickle, onion, tomato and lettuce. Served with our famous thick cut french fries</td>
-			<td>A Summer Classic! Your choice - white or whet bun. Relish, mustard, and ketchup. Served with our house-made chips.</td>
+			<td>A Summer Classic! Your choice - white or wheat bun. Relish, mustard, and ketchup. Served with our house-made chips.</td>
 			<td> An All-Time Favorite! Your choice - mild or spicy Cole Slaw. Served with garlic mashers.</td>
 		</tr>
 		
-		<tr>
+		<tr style = "background-color:skyblue;">
 			<td>$7.95</td>
 			<td>$7.95</td>
 			<td>$10.95</td>
@@ -50,16 +67,43 @@
 			<th>Brisket Sandwich and Fries</th>
 		</tr>
 		
-		<tr>
+		<tr style = "background-color:pink;">
 			<td>Really Hits the Spot! Plain or Sesame Seed Bun. Pickle, onion, tomato and lettuce. Served with our house-made chips</td>
 			<td>On the Lighter Side. Your choice - with or without cheese. Iceberg lettuce, tomatoes, peppers. Thousand Island or Ranch Dressing served with a dinner roll</td>
 			<td>A Taste of Texas! Smoked Brisket on thick-cut Texas Toas. Cole Slaw. Served with our famous thick-cut french fries</td>
 		</tr>
 		
-		<tr>
+		<tr style = "background-color:skyblue;">
 			<td>$8.95</td>
 			<td>$6.95</td>
 			<td>$7.95</td>
+		</tr>
+		
+		</table>
+		
+		<table id = "Beverage">
+		<tr>
+			<th colspan = "2">Beverages</th>
+		</tr>
+		
+		<tr style = "background-color:pink">
+			<td>Root Beer</td>
+			<td>$3.00</td>
+		</tr>
+		
+		<tr style ="background-color:skyblue">
+			<td>Bottled Water</td>
+			<td>$1.25</td>
+		</tr>
+		
+		<tr style = "background-color:pink">
+			<td>Lemonade</td>
+			<td>$1.00</td>
+		</tr>
+		
+		<tr style = "background-color:skyblue">
+			<td>Iced Tea</td>
+			<td>$1.25</td>
 		</tr>
 		
 	</table>

@@ -1,0 +1,34 @@
+body {
+	background-color:lemonchiffon;
+	font-family: "MV Boli";
+	}
+		
+nav a{
+		margin:50px;
+}
+	nav a:hover {
+		background-color:pink;
+	}
+	
+	nav a:active {
+		font-weight:bold;
+	}
+	
+	nav a:visited {
+		color:red;
+	}
+	
+	header, footer, nav{
+		text-align:center;
+	}
+	h1 {
+		font-style: italic;
+		font-weight:bold; 
+		background-color: indianred;
+		height: 100px;
+		text-align: center;
+		padding: 30px 10px 5px 10px;
+		font-size: 2.5em;
+	}
+			
+	
