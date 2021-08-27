@@ -2,11 +2,18 @@
 <!--Name: Jo Krista Aquino
 	Date created: August 13, 2021
 -->
-<html lang = "en">
+<html lang = "en" xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
+	
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>Contact Us</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link href = "styles\Dinerstyles.css" rel = "stylesheet" type = "text/css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<script type = "text/javascript" src = "ContactUs.js"></script>
 		<style>
 		body {
 			font-size: 1.2em;
@@ -34,27 +41,32 @@
 			}
 			
 		</style>
+		<script type="text/javascript">
+        function warnTheUser() {
+            alert("This page is best viewed with JavaScript");
+        }
+    </script>
 			
 	</head>
 	
-	<body>
+	<body onload="warnTheUser();">
 	<header>
 		<h1>Diner Dash</h1>
 	</header>
 	
 	<nav>
 	<hr />
-	<p><a href = "DinerDash.html">Home<a href = "Menu.html">Menu</a></a></p>
+	<p><a href = "DinerDash.html" class="btn badge-pill"><i class = "fa fa-fw fa-home"></i>Home<a href = "Menu.html" class="btn badge-pill">Menu</a></a></p>
 	
 	</p>
 	<hr />
 	</nav>
-	
 	<div id = "ContactInfo">
-		<form action = "ContactUs.html" method = "POST">
-			Name:<input type = "text" name = "myTextInput" required /><br />
-			Email:<input type = "text" name = "myTextInput" required /><br />
-			Phone:<input type = "text" name = "myTextInput" required /><br />
+		<form action = "ContactUs.html" method = "POST" name="ContactUsForm" onsubmit="validateItems();" 
+          onreset="resetForm();">
+			<label for = "Name">Name:</label><input type = "text" name = "myTextInput" required /><br />
+			<label for = "Email">Email:</label><input type = "text" name = "myTextInput" required /><br />
+			<label for = "Phone">Phone:</label><input type = "text" name = "myTextInput" required /><br />
 			
 			Reason for Inquiry
 			<select name = "Inquiry">
