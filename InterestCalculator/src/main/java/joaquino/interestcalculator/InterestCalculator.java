@@ -34,13 +34,14 @@ public class InterestCalculator {
         for(int yearNum = 1; yearNum <= numOfYears; yearNum++){
             
            
-             System.out.println("Year:" + yearNum + " ");
+             System.out.println("Year:" + yearNum);
              System.out.println("");
              System.out.println("Began with: " + principal);
              
-             principal = principal * (interestRate/100)+principal;
              
-             System.out.println("Earned: " + principal * (interestRate/100)+principal);
+             
+             System.out.println("Earned: " + (principal * (interestRate/100)));
+             principal = principal * (interestRate/100)+ principal;
              System.out.println("Ended with: " + principal);
              System.out.println("");
         }

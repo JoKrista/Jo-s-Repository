@@ -28,7 +28,7 @@ public class LuckySevens {
         
         int wouldHaveWon = bet; //the highest amount of money that has been won
         //was originally in the wrong place right below rollsTillBroke
-        //where a certain line of code is can make a whole lot of difference
+        
         
         while(bet > 0){//this was initially an if but it was making the code 
                         //stop even before all the money had been spent
@@ -38,7 +38,7 @@ public class LuckySevens {
                 bet += 4;
                 if(bet > wouldHaveWon){
                     wouldHaveWon = bet;
-                    timeToQuit++;
+                    timeToQuit = rollsTillBroke;
                     //wouldHaveWon = timeToQuit; just tried this part out just in case
                     // but it was not helping me track what roll was my highest number
                     //wonder why? It was making me quit the game before I reach 0 money
@@ -48,7 +48,8 @@ public class LuckySevens {
                 bet -= 1;
             }
             
-            
+            System.out.println("Roll number: " + rollsTillBroke +" Dice Roll: " + diceSum);
+            System.out.print("Total Money: "+ bet);
             
         }
         
@@ -62,5 +63,5 @@ public class LuckySevens {
            Random rngLuck = new Random();
            return rngLuck.nextInt(6) + 1;
         }
-    //I did not use a method but use just Random originally. It was messy :D
+    
 }

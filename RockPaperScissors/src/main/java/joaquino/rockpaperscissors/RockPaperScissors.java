@@ -58,17 +58,30 @@ public class RockPaperScissors {
             do{
                compHand = aiHand();
                user = userHand();
-               
-               if ( user == 1 && compHand == 1){
+               if (user == compHand){
                    tie++;
                    System.out.println("It's a tie");
-               }else if ( user == 1 && compHand == 2){
+               }else if(user == 1 && compHand == 2){
+                   lose++;
+                   System.out.println("You lose");
+               }else if(user == 1 && compHand == 3){
+                   win++;
+                   System.out.println("You win");
+               }else if(user == 2 && compHand == 1){
+                   win++;
+                   System.out.println("You win");
+               }else if(user == 2 && compHand == 3){
+                   lose++;
+                   System.out.println("You lose");
+               }else if(user == 3 && compHand == 1){
                    lose++;
                    System.out.println("You lose");
                }else{
                    win++;
-                   System.out.println("You win!");
+                   System.out.println("You win");
                }
+               
+             
                 System.out.println("Computer: " + compHand + " " + "Yours: " + user);
              
                  numberOfRounds -= 1;
