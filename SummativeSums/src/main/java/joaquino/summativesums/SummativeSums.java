@@ -15,24 +15,24 @@ import java.util.Scanner;
 public class SummativeSums {
     public static void main(String[] args){
         
-        int arrSize = 0;
-        int[] numToAdd = new int[enterArrSize()];
+        //call on enterArrSize method to get array size
+        int[] arrSize = new int[enterArrSize()];
+       
         
-        int sum = 0;
+        int sum = 0;//sum of the index data
         
         System.out.println("Enter the elements of the array");
-        Scanner arrScan = new Scanner(System.in);
         
-        //this would be the index data and it can only be entered = number of array size the user had given
-        for(int l = 0; l < arrSize; l++){
-            numToAdd[l] = arrScan.nextInt(); //getting array elements from the user
-            sum = sum + numToAdd[l];
-
+        //code below asks for array index data from user and then adds it
+        for(int index = 0; index<arrSize.length; index++){
+        Scanner arrScan = new Scanner(System.in);
+        arrSize[index] = arrScan.nextInt();
+        sum = sum + arrSize[index]; 
         }
             System.out.println("The array sum is: " + sum);
         }
-    
-    
+
+    //method below asks for the size of the array from user
     private static int enterArrSize(){
         
         int arrSize;
@@ -42,10 +42,13 @@ public class SummativeSums {
      
         arrSize = arrScan.nextInt();
         
-        int[] array = new int[arrSize];//this willl be the array size
+        //set it up so that arrSize would be the array Size
+        int[] array = new int[arrSize];
         
-             return arrSize;
+        return arrSize;//this is what we will get if we call on method EnterArrSize
         }
+    
+    
     /*  This was the original program that I submitted
         jaggedArray();
 
