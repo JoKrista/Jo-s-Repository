@@ -26,7 +26,7 @@ public interface DVDDao {
     DVD removeDVD(String Title)
             throws DVDLibException;
     
-    /*DVD editUserRating(String Title, String UserRating)
-            throws DVDLibException;
-    */
+   /* DVD editUserRating(String Title, String UserRating)
+            throws DVDLibException;*/
+    
 }

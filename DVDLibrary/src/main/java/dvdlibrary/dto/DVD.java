@@ -29,7 +29,7 @@ public class DVD {
     public String getReleaseDate(){
         return ReleaseDate;
     }
-    
+    //why is this the only part that has "Assignment to itself"?
     public void setReleaseDate(String RelaseDate){
         this.ReleaseDate = ReleaseDate;
     }
@@ -62,5 +62,7 @@ public class DVD {
     public void setUserRating(String UserRating){
         this.UserRating = UserRating;
     }
+
+    
     
 }

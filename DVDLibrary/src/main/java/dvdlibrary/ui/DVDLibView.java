@@ -53,16 +53,14 @@ public class DVDLibView {
     public void displayAddedSuccessfully(){
         io.readString("DVD added successfully. Please hit enter to continue");
     }
-    
+    //there is a problem here where when the program has just started,
+    //it won't display the library list even though it isn't empty
+    //it displays it just fine after checking out 1 DVD first though
+    //or after adding a new one or deleting an old one
     public void displayLibraryList(List<DVD> dvdList){
         for(DVD currentDVD : dvdList){
-            String dvdInfo = String.format("#%s : %s",
-                    currentDVD.getTitle(),
-                    currentDVD.getReleaseDate(),
-                    currentDVD.getMPAARating(),
-                    currentDVD.getDirectorName(),
-                    currentDVD.getStudio(),
-                    currentDVD.getUserRating());
+            String dvdInfo = String.format("%s : %s",
+                    currentDVD.getTitle(), currentDVD.getStudio());
             io.print(dvdInfo);
         }
         io.readString("Please hit Enter to continue");
@@ -79,7 +77,7 @@ public class DVDLibView {
     public String getDVDTitleChoice(){
         return io.readString("Please enter the DVD Title");
     }
-    
+    //for ReleaseDate and DirectorName, it's displaying null instead
     public void displayDVD(DVD dvd){
         if (dvd != null){
             io.print(dvd.getTitle());
@@ -107,9 +105,25 @@ public class DVDLibView {
         io.readString("Please hit enter to continue");
     }
     
-    public void displayEditUserRating(DVD dvdUserRate){
-        
+    /* public String chooseDVDToEdit(){
+        return io.readString("Please type the title of the DVD to edit");
     }
+    
+    public void displayEditUserRating(DVD dvd, String dvdUserRate){
+        if(dvd != null){
+        io.print(dvd.getTitle());
+        DVD currentDVD = null;
+        currentDVD.setUserRating(dvdUserRate);
+        }else{
+            io.print("DVD does not exist in the library");
+        }
+        io.readString("Please hit enter to continue");
+    }
+    
+    
+    public void displayEdited(){
+        io.print("DVD has been edited successfully.");
+    }*/
     
     public void displayExitBanner(){
         io.print("Thank you for visiting the library and goodbye!");

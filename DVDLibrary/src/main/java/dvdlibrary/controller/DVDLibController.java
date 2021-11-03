@@ -23,6 +23,7 @@ public class DVDLibController {
     private DVDLibView view;
     private DVDDao dao;
     
+    
     public DVDLibController(DVDDao dao, DVDLibView view){
         this.dao = dao;
         this.view = view;
@@ -100,6 +101,14 @@ public class DVDLibController {
         DVD removedDVD = dao.removeDVD(Title);
         view.displayRemoveDVD(removedDVD);
     }
+    
+    /*private void editDVD() throws DVDLibException{
+        //view.chooseDVDToEdit();
+        String Title = view.chooseDVDToEdit();
+        String userEdit;
+        userEdit = dao.editUserRating(UserRating);
+        view.displayEdited();
+    }*/
     
     private void unknownCommand(){
         view.displayUnknownCommandBanner();

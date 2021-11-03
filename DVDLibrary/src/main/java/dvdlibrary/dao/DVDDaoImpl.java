@@ -129,17 +129,18 @@ public class DVDDaoImpl implements DVDDao{
         }
         return removedDVD;
     }
-/*
-    @Override
+
+    /*@Override
     public DVD editUserRating(String Title, String UserRating) throws DVDLibException {
         loadLibrary();
-    return dvd.get(Title);
-    DVD userEdit = dvd.setUserRating();
-    try{
-    writeRoster();
-    return userEdit;
-    }*/
-    
-    
-    
+        
+        DVD newEdit;
+        newEdit = dvd.put(Title, UserRating);
+        try{
+            writeLibrary();
+        }catch(IOException ex){
+            Logger.getLogger(DVDDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return newEdit;
+}*/
 }
