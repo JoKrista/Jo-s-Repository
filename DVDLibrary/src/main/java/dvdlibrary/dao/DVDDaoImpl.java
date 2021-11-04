@@ -17,8 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -77,7 +76,7 @@ public class DVDDaoImpl implements DVDDao{
         return DVDAsText;
     }
     
-    private void writeLibrary() throws DVDLibException, IOException{
+    private void writeLibrary() throws DVDLibException {
         PrintWriter out;
         try{
             out = new PrintWriter(new FileWriter(DVD_FILE));
@@ -85,8 +84,9 @@ public class DVDDaoImpl implements DVDDao{
             throw new DVDLibException(
             "Could not save DVD data", e);
         }
+        //check for other solution
         String DVDAsText;
-        List dvdList = this.getAllDVD();
+        List<DVD> dvdList = this.getAllDVD();
         for(Object currentDVD : dvdList){
             DVDAsText = marshallDVD((DVD) currentDVD);
             out.println(DVDAsText);
@@ -94,17 +94,23 @@ public class DVDDaoImpl implements DVDDao{
         }
         out.close();
     }
+    
+    /*private void editDVD() throws DVDLibException{
+        PrintWriter out;
+        loadLibrary();
+        try{
+            out = new PrintWriter(new FileWriter(DVD_FILE));
+        }catch(IOException e){
+            throw new DVDLibException("Could not save DVD data", e);
+        }
+    }*/
 
     @Override
     public DVD addDVD(String Title, DVD dvds) throws DVDLibException {
         
         loadLibrary();
         DVD newDVD = dvd.put(Title, dvds);
-        try{
-            writeLibrary();
-        }catch(IOException ex){
-            Logger.getLogger(DVDDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        writeLibrary();
         return newDVD;
     }
 
@@ -118,29 +124,38 @@ public class DVDDaoImpl implements DVDDao{
         loadLibrary();
         return dvd.get(Title);
     }
-
+    //put in boolean for implementation
     @Override
     public DVD removeDVD(String Title) throws DVDLibException {
         DVD removedDVD = dvd.remove(Title);
-        try{
-            writeLibrary();
-        } catch (IOException ex) {
-            Logger.getLogger(DVDDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        writeLibrary();
         return removedDVD;
     }
 
-    /*@Override
-    public DVD editUserRating(String Title, String UserRating) throws DVDLibException {
+    @Override
+    public DVD editTheDVD(String Title, String UserRating, 
+            String DirectorName, String MPAARating, String ReleaseDate) throws DVDLibException {
         loadLibrary();
         
-        DVD newEdit;
+        DVD currentDVD = dvd.get(Title);
+        /*String Title = io.readString("Please enter DVD Title");
+        String ReleaseDate = io.readString("Release Date");
+        String MPAARating = io.readString("MPAARating");
+        String DirectorName = io.readString("Director's Name");
+        String Studio = io.readString("Studio");
+        String UserRating = io.readString("Viewer Rating");*/
+        dvd.get(UserRating);
+        dvd.get(DirectorName);
+        dvd.get(MPAARating);
+        dvd.get(ReleaseDate);
+        currentDVD.setUserRating(UserRating);
+        currentDVD.setDirectorName(DirectorName);
+        currentDVD.setMPAARating(MPAARating);
+        currentDVD.setReleaseDate(ReleaseDate);
+        return currentDVD;
+        /*DVD newEdit;
         newEdit = dvd.put(Title, UserRating);
-        try{
-            writeLibrary();
-        }catch(IOException ex){
-            Logger.getLogger(DVDDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return newEdit;
-}*/
+        writeLibrary();
+        return newEdit;*/
+}
 }

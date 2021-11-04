@@ -6,6 +6,7 @@
 package dvdlibrary.controller;
 
 import dvdlibrary.dao.DVDDao;
+import dvdlibrary.dao.DVDDaoImpl;
 import dvdlibrary.dao.DVDLibException;
 import dvdlibrary.dto.DVD;
 import dvdlibrary.ui.DVDLibView;
@@ -22,6 +23,7 @@ public class DVDLibController {
     private UserIO io = new UserIOImpl();
     private DVDLibView view;
     private DVDDao dao;
+    private DVDDaoImpl impl;
     
     
     public DVDLibController(DVDDao dao, DVDLibView view){
@@ -56,7 +58,9 @@ public class DVDLibController {
                     case 4:
                         removeDVD();
                         break;
-                    /*case 5://Edit DVD*/
+                    case 5:
+                        editDVD();
+                        break;
                     case 6:
                         keepGoing = false;
                         break;
@@ -102,13 +106,23 @@ public class DVDLibController {
         view.displayRemoveDVD(removedDVD);
     }
     
-    /*private void editDVD() throws DVDLibException{
+    private void editDVD() throws DVDLibException{
+        
+        String UserRating = null;
+        String MPAARating = null;
+        String ReleaseDate = null;
+        String DirectorName = null;
+        
+        view.chooseDVDToEdit();
+        String Title = view.getDVDTitleChoice();
+        DVD userEdit = dao.editTheDVD(Title, UserRating, MPAARating, ReleaseDate, DirectorName);
+        view.displayEdited();
         //view.chooseDVDToEdit();
-        String Title = view.chooseDVDToEdit();
+        /*String Title = view.chooseDVDToEdit();
         String userEdit;
         userEdit = dao.editUserRating(UserRating);
-        view.displayEdited();
-    }*/
+        view.displayEdited();*/
+    }
     
     private void unknownCommand(){
         view.displayUnknownCommandBanner();

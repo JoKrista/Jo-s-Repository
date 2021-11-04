@@ -105,15 +105,33 @@ public class DVDLibView {
         io.readString("Please hit enter to continue");
     }
     
-    /* public String chooseDVDToEdit(){
+     public String chooseDVDToEdit(){
         return io.readString("Please type the title of the DVD to edit");
     }
     
-    public void displayEditUserRating(DVD dvd, String dvdUserRate){
+    public void displayEditUserRating(DVD dvd, String UserRating, 
+            String DirectorName, String MPAARating, String ReleaseDate){
         if(dvd != null){
         io.print(dvd.getTitle());
-        DVD currentDVD = null;
-        currentDVD.setUserRating(dvdUserRate);
+        DVD currentDVD = dvd;
+        /*String Title = io.readString("Please enter DVD Title");
+        String ReleaseDate = io.readString("Release Date");
+        String MPAARating = io.readString("MPAARating");
+        String DirectorName = io.readString("Director's Name");
+        String Studio = io.readString("Studio");
+        String UserRating = io.readString("Viewer Rating");*/
+        UserRating = io.readString("Edit User Rating");
+        io.print(dvd.getUserRating());
+        currentDVD.setUserRating(UserRating);
+        DirectorName = io.readString("Edit Director Name");
+        io.print(dvd.getDirectorName());
+        currentDVD.setDirectorName(DirectorName);
+        MPAARating = io.readString("Edit MPAARating");
+        io.print(dvd.getMPAARating());
+        currentDVD.setMPAARating(MPAARating);
+        ReleaseDate = io.readString("Edit Release Date");
+        io.print(dvd.getReleaseDate());
+        currentDVD.setReleaseDate(ReleaseDate);
         }else{
             io.print("DVD does not exist in the library");
         }
@@ -123,7 +141,7 @@ public class DVDLibView {
     
     public void displayEdited(){
         io.print("DVD has been edited successfully.");
-    }*/
+    }
     
     public void displayExitBanner(){
         io.print("Thank you for visiting the library and goodbye!");
