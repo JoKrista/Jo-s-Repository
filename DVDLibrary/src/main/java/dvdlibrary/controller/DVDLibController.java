@@ -36,15 +36,9 @@ public class DVDLibController {
         int menuSelection = 0;
         try{
             while(keepGoing){
-                io.print("Main Menu");
-                io.print("1. List DVD Library");
-                io.print("2. Add New DVD");
-                io.print("3. View DVD Details");
-                io.print("4. Remove DVD from Library");
-                io.print("5. Edit DVD User Rating");
-                io.print("6. Exit");
                 
-                menuSelection = io.readInt("Please select from the" + " above choices", 1, 6);
+                menuSelection = getLibMenuSelection();
+                
                 switch(menuSelection){
                     case 1:
                         listDVDs();
@@ -106,22 +100,11 @@ public class DVDLibController {
         view.displayRemoveDVD(removedDVD);
     }
     
+    
     private void editDVD() throws DVDLibException{
-        
-        String UserRating = null;
-        String MPAARating = null;
-        String ReleaseDate = null;
-        String DirectorName = null;
-        
-        view.chooseDVDToEdit();
-        String Title = view.getDVDTitleChoice();
-        DVD userEdit = dao.editTheDVD(Title, UserRating, MPAARating, ReleaseDate, DirectorName);
+        String thisDVD = view.chooseDVDToEdit();
+        view.displayEditThisDVD(thisDVD);
         view.displayEdited();
-        //view.chooseDVDToEdit();
-        /*String Title = view.chooseDVDToEdit();
-        String userEdit;
-        userEdit = dao.editUserRating(UserRating);
-        view.displayEdited();*/
     }
     
     private void unknownCommand(){

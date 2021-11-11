@@ -5,6 +5,7 @@
  */
 package dvdlibrary.ui;
 
+import dvdlibrary.dao.DVDLibException;
 import dvdlibrary.dto.DVD;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * @author joaqu
  */
 public class DVDLibView {
-    private UserIO io;
+    private UserIO io = new UserIOImpl();
     
     public DVDLibView(UserIO io){
         this.io = io;
@@ -53,15 +54,10 @@ public class DVDLibView {
     public void displayAddedSuccessfully(){
         io.readString("DVD added successfully. Please hit enter to continue");
     }
-    //there is a problem here where when the program has just started,
-    //it won't display the library list even though it isn't empty
-    //it displays it just fine after checking out 1 DVD first though
-    //or after adding a new one or deleting an old one
+    
     public void displayLibraryList(List<DVD> dvdList){
         for(DVD currentDVD : dvdList){
-            String dvdInfo = String.format("%s : %s",
-                    currentDVD.getTitle(), currentDVD.getStudio());
-            io.print(dvdInfo);
+            io.print(currentDVD.getTitle());
         }
         io.readString("Please hit Enter to continue");
     }
@@ -77,7 +73,7 @@ public class DVDLibView {
     public String getDVDTitleChoice(){
         return io.readString("Please enter the DVD Title");
     }
-    //for ReleaseDate and DirectorName, it's displaying null instead
+    
     public void displayDVD(DVD dvd){
         if (dvd != null){
             io.print(dvd.getTitle());
@@ -109,36 +105,25 @@ public class DVDLibView {
         return io.readString("Please type the title of the DVD to edit");
     }
     
-    public void displayEditUserRating(DVD dvd, String UserRating, 
-            String DirectorName, String MPAARating, String ReleaseDate){
-        if(dvd != null){
-        io.print(dvd.getTitle());
-        DVD currentDVD = dvd;
-        /*String Title = io.readString("Please enter DVD Title");
-        String ReleaseDate = io.readString("Release Date");
-        String MPAARating = io.readString("MPAARating");
-        String DirectorName = io.readString("Director's Name");
-        String Studio = io.readString("Studio");
-        String UserRating = io.readString("Viewer Rating");*/
-        UserRating = io.readString("Edit User Rating");
-        io.print(dvd.getUserRating());
-        currentDVD.setUserRating(UserRating);
-        DirectorName = io.readString("Edit Director Name");
-        io.print(dvd.getDirectorName());
-        currentDVD.setDirectorName(DirectorName);
-        MPAARating = io.readString("Edit MPAARating");
-        io.print(dvd.getMPAARating());
-        currentDVD.setMPAARating(MPAARating);
-        ReleaseDate = io.readString("Edit Release Date");
-        io.print(dvd.getReleaseDate());
-        currentDVD.setReleaseDate(ReleaseDate);
-        }else{
-            io.print("DVD does not exist in the library");
-        }
-        io.readString("Please hit enter to continue");
+    public DVD displayEditThisDVD(String thisDVD){
+        
+        String Title = io.readString("Please type the title of the DVD to edit");
+        String newReleaseDate = io.readString("Release Date");
+        String newMPAARating = io.readString("MPAARating");
+        String newDirectorName = io.readString("Director's Name");
+        String newStudio = io.readString("Studio");
+        String newUserRating = io.readString("Viewer Rating");
+        DVD currentDVD = new DVD(thisDVD);
+        currentDVD.setReleaseDate(newReleaseDate);
+        currentDVD.setMPAARating(newMPAARating);
+        currentDVD.setDirectorName(newDirectorName);
+        currentDVD.setStudio(newStudio);
+        currentDVD.setUserRating(newUserRating);
+        
+        return currentDVD;
+        
     }
-    
-    
+
     public void displayEdited(){
         io.print("DVD has been edited successfully.");
     }
@@ -146,6 +131,7 @@ public class DVDLibView {
     public void displayExitBanner(){
         io.print("Thank you for visiting the library and goodbye!");
     }
+    
     
     public void displayUnknownCommandBanner(){
         io.print("Unknown Comman");

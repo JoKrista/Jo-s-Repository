@@ -72,7 +72,7 @@ public class DVDDaoImpl implements DVDDao{
         DVDAsText += aDVD.getMPAARating() + DELIMITER;
         DVDAsText += aDVD.getDirectorName() + DELIMITER;
         DVDAsText += aDVD.getStudio() + DELIMITER;
-        DVDAsText += aDVD.getUserRating() + DELIMITER;
+        DVDAsText += aDVD.getUserRating();
         return DVDAsText;
     }
     
@@ -87,7 +87,7 @@ public class DVDDaoImpl implements DVDDao{
         //check for other solution
         String DVDAsText;
         List<DVD> dvdList = this.getAllDVD();
-        for(Object currentDVD : dvdList){
+        for(DVD currentDVD : dvdList){
             DVDAsText = marshallDVD((DVD) currentDVD);
             out.println(DVDAsText);
             out.flush();
@@ -95,15 +95,6 @@ public class DVDDaoImpl implements DVDDao{
         out.close();
     }
     
-    /*private void editDVD() throws DVDLibException{
-        PrintWriter out;
-        loadLibrary();
-        try{
-            out = new PrintWriter(new FileWriter(DVD_FILE));
-        }catch(IOException e){
-            throw new DVDLibException("Could not save DVD data", e);
-        }
-    }*/
 
     @Override
     public DVD addDVD(String Title, DVD dvds) throws DVDLibException {
@@ -116,6 +107,7 @@ public class DVDDaoImpl implements DVDDao{
 
     @Override
     public List<DVD> getAllDVD() throws DVDLibException {
+        loadLibrary();
         return new ArrayList<DVD>(dvd.values());
     }
 
@@ -133,29 +125,12 @@ public class DVDDaoImpl implements DVDDao{
     }
 
     @Override
-    public DVD editTheDVD(String Title, String UserRating, 
-            String DirectorName, String MPAARating, String ReleaseDate) throws DVDLibException {
+    public DVD editTheDVD(String Title, DVD thisDVD) throws DVDLibException {
         loadLibrary();
-        
-        DVD currentDVD = dvd.get(Title);
-        /*String Title = io.readString("Please enter DVD Title");
-        String ReleaseDate = io.readString("Release Date");
-        String MPAARating = io.readString("MPAARating");
-        String DirectorName = io.readString("Director's Name");
-        String Studio = io.readString("Studio");
-        String UserRating = io.readString("Viewer Rating");*/
-        dvd.get(UserRating);
-        dvd.get(DirectorName);
-        dvd.get(MPAARating);
-        dvd.get(ReleaseDate);
-        currentDVD.setUserRating(UserRating);
-        currentDVD.setDirectorName(DirectorName);
-        currentDVD.setMPAARating(MPAARating);
-        currentDVD.setReleaseDate(ReleaseDate);
-        return currentDVD;
-        /*DVD newEdit;
-        newEdit = dvd.put(Title, UserRating);
+        //dvd.get(Title);
+        DVD newEdit = dvd.replace(Title, thisDVD);
         writeLibrary();
-        return newEdit;*/
-}
+        return newEdit;
+        
+    }
 }

@@ -1,7 +1,2 @@
-The Avengers::null::13+ Teens::null::Marvel::Too much politics::
-Random::null::All ages::null::Nowhere::No comment::
-Iron Man 3::null::13+ Teens::Chris Buck::Marvel::Therapy is important::
-Cloudy with a Chance of Meatballs::null::7+ Older Kids::null::Sony Pictures Animation Inc.::This isn't very sanitary. Or is hygienic the word?::
-Another DVD::null::For Everyone::Nobody::Nowhere::This does not exist::
-Thor: The Dark World::null::13+ Teens::null::Marvel::I haven't actually watched this yet::
-Frozen::null::7+ Older Kids::null::Walt Disney Animation Studio::Olaf best character::
+Random::2021::PG::Anon::MGM::PG
+Generic::Anon::PG::2021::MGM::Nothing

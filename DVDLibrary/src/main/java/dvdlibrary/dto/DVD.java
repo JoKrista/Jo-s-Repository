@@ -29,8 +29,8 @@ public class DVD {
     public String getReleaseDate(){
         return ReleaseDate;
     }
-    //why is this the only part that has "Assignment to itself"?
-    public void setReleaseDate(String RelaseDate){
+    
+    public void setReleaseDate(String ReleaseDate){
         this.ReleaseDate = ReleaseDate;
     }
     
