@@ -101,13 +101,11 @@ public class DVDLibView {
         io.readString("Please hit enter to continue");
     }
     
-     public String chooseDVDToEdit(){
-        return io.readString("Please type the title of the DVD to edit");
-    }
     
     public DVD displayEditThisDVD(String thisDVD){
         
         String Title = io.readString("Please type the title of the DVD to edit");
+        
         String newReleaseDate = io.readString("Release Date");
         String newMPAARating = io.readString("MPAARating");
         String newDirectorName = io.readString("Director's Name");
@@ -121,12 +119,13 @@ public class DVDLibView {
         currentDVD.setUserRating(newUserRating);
         
         return currentDVD;
-        
+ 
     }
 
     public void displayEdited(){
-        io.print("DVD has been edited successfully.");
+        io.readString("DVD has been edited successfully. Please hit enter to continue.");
     }
+    
     
     public void displayExitBanner(){
         io.print("Thank you for visiting the library and goodbye!");

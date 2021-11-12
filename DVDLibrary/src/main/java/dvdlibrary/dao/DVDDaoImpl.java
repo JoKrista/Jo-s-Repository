@@ -116,7 +116,7 @@ public class DVDDaoImpl implements DVDDao{
         loadLibrary();
         return dvd.get(Title);
     }
-    //put in boolean for implementation
+    
     @Override
     public DVD removeDVD(String Title) throws DVDLibException {
         DVD removedDVD = dvd.remove(Title);
@@ -126,11 +126,9 @@ public class DVDDaoImpl implements DVDDao{
 
     @Override
     public DVD editTheDVD(String Title, DVD thisDVD) throws DVDLibException {
-        loadLibrary();
-        //dvd.get(Title);
+        //loadLibrary();
         DVD newEdit = dvd.replace(Title, thisDVD);
         writeLibrary();
         return newEdit;
-        
     }
 }

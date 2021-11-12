@@ -10,8 +10,6 @@ import dvdlibrary.dao.DVDDaoImpl;
 import dvdlibrary.dao.DVDLibException;
 import dvdlibrary.dto.DVD;
 import dvdlibrary.ui.DVDLibView;
-import dvdlibrary.ui.UserIO;
-import dvdlibrary.ui.UserIOImpl;
 import java.util.List;
 
 /**
@@ -20,10 +18,10 @@ import java.util.List;
  */
 public class DVDLibController {
     
-    private UserIO io = new UserIOImpl();
+   
     private DVDLibView view;
     private DVDDao dao;
-    private DVDDaoImpl impl;
+   
     
     
     public DVDLibController(DVDDao dao, DVDLibView view){
@@ -102,7 +100,7 @@ public class DVDLibController {
     
     
     private void editDVD() throws DVDLibException{
-        String thisDVD = view.chooseDVDToEdit();
+        String thisDVD = null;
         view.displayEditThisDVD(thisDVD);
         view.displayEdited();
     }
