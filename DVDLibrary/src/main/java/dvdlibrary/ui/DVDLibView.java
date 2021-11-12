@@ -26,7 +26,7 @@ public class DVDLibView {
         io.print("2. Add New DVD");
         io.print("3. View DVD Details");
         io.print("4. Remove DVD from Library");
-        io.print("5. Edit DVD User Rating");
+        io.print("5. Edit DVD");
         io.print("6. Exit");
         
         return io.readInt("Please select from the above choices.", 1, 6);
@@ -102,7 +102,7 @@ public class DVDLibView {
     }
     
     
-    public DVD displayEditThisDVD(String thisDVD){
+    public DVD displayEditThisDVD(){
         
         String Title = io.readString("Please type the title of the DVD to edit");
         
@@ -111,15 +111,15 @@ public class DVDLibView {
         String newDirectorName = io.readString("Director's Name");
         String newStudio = io.readString("Studio");
         String newUserRating = io.readString("Viewer Rating");
-        DVD currentDVD = new DVD(thisDVD);
+        DVD currentDVD = new DVD(Title);
+        if (Title != null){
         currentDVD.setReleaseDate(newReleaseDate);
         currentDVD.setMPAARating(newMPAARating);
         currentDVD.setDirectorName(newDirectorName);
         currentDVD.setStudio(newStudio);
         currentDVD.setUserRating(newUserRating);
-        
+        }
         return currentDVD;
- 
     }
 
     public void displayEdited(){

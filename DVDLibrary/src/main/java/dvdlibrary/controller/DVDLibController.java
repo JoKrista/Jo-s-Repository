@@ -101,7 +101,7 @@ public class DVDLibController {
     
     private void editDVD() throws DVDLibException{
         String thisDVD = null;
-        view.displayEditThisDVD(thisDVD);
+        view.displayEditThisDVD();
         view.displayEdited();
     }
     
