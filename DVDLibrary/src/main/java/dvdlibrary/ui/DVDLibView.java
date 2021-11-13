@@ -101,24 +101,26 @@ public class DVDLibView {
         io.readString("Please hit enter to continue");
     }
     
+    public String displayEditThisDVD(){
+        return io.readString("Please enter the name of the DVD");
+    }
     
-    public DVD displayEditThisDVD(){
+    public DVD displayEditThisDVD(String thisDVD){
         
         String Title = io.readString("Please type the title of the DVD to edit");
-        
         String newReleaseDate = io.readString("Release Date");
         String newMPAARating = io.readString("MPAARating");
         String newDirectorName = io.readString("Director's Name");
         String newStudio = io.readString("Studio");
         String newUserRating = io.readString("Viewer Rating");
-        DVD currentDVD = new DVD(Title);
-        if (Title != null){
+        DVD currentDVD = new DVD(thisDVD);
+        
         currentDVD.setReleaseDate(newReleaseDate);
         currentDVD.setMPAARating(newMPAARating);
         currentDVD.setDirectorName(newDirectorName);
         currentDVD.setStudio(newStudio);
         currentDVD.setUserRating(newUserRating);
-        }
+        //}
         return currentDVD;
     }
 

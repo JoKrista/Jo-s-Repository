@@ -96,7 +96,7 @@ public class DVDDaoImpl implements DVDDao{
         for(DVD currentDVD : dvdList){
             DVDAsText = marshallDVD(currentDVD);
             out.println(DVDAsText);
-            out.flush();//if only it would write the one for edited too >.>
+            out.flush();
         }
         out.close();
     }
@@ -125,24 +125,17 @@ public class DVDDaoImpl implements DVDDao{
     
     @Override
     public DVD removeDVD(String Title) throws DVDLibException {
-        loadLibrary();//at first, I didn't have this here, but it still worked?
+        loadLibrary();
         DVD removedDVD = dvd.remove(Title);
         writeLibrary();
-        return removedDVD;//kinda ironic that we're returning something we've removed
+        return removedDVD;
     }
 
     @Override
-    public DVD editTheDVD(String Title, String newMPAARating, 
-           String newDirectorName, String newStudio, String newUserRating, String newReleaseDate) throws DVDLibException {
+    public DVD editTheDVD(String Title, DVD thisDVD) throws DVDLibException {
         loadLibrary();
-        //I tried to use the dvd.replace but it rewrote the whole file instead
-        //and erased everything else I've put in it
         DVD newEdit = dvd.get(Title);
-        newEdit.setDirectorName(newDirectorName);
-        newEdit.setMPAARating(newMPAARating);
-        newEdit.setStudio(newStudio);
-        newEdit.setUserRating(newUserRating);
-        newEdit.setReleaseDate(newReleaseDate);
+        dvd.put(Title, thisDVD);
         writeLibrary();
         return newEdit;
     }

@@ -100,8 +100,9 @@ public class DVDLibController {
     
     
     private void editDVD() throws DVDLibException{
-        String thisDVD = null;
-        view.displayEditThisDVD();
+        String thisDVD = view.displayEditThisDVD();
+        DVD editDVD = view.displayEditThisDVD(thisDVD);
+        dao.editTheDVD(editDVD.getTitle(), editDVD);
         view.displayEdited();
     }
     
