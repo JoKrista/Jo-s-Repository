@@ -1,0 +1,6 @@
+1::Karma::Akabane::3-E
+2::Yuma::Isogai::3-E
+3::Taiga::Okajima::3-E
+4::Manami::Okuda::3-E
+5::Meg::Kataoka::3-E
+6::Kaede::Kayano::3-E
