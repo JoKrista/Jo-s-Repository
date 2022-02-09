@@ -30,12 +30,12 @@ public class VendingMachineController {
         
             boolean keepGoing = true;
             String selection = "";
-            BigDecimal despositMoney;
+            BigDecimal depositMoney;
             view.opening();
             buyProduct();
             
         try {
-            despositMoney = deposit();
+            depositMoney = deposit();
             while(keepGoing){
                 selection = buyProduct();
                 
